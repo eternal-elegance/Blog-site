@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+
+
+{% block title %}
+Boom Blogger | New Comment
+{% endblock title %}
+
+
+{% block content %}
+<h1>New Comment</h1>
+<form action="" method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="save btn btn-info">Post Comment</button>
+</form>
+
+<script>
+  var editor = new MediumEditor('.editable');
+</script>
+
+{% endblock content %}

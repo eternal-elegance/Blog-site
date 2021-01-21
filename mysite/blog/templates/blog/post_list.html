@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+
+
+{% block title %}
+Boom Blogger | Home
+{% endblock title %}
+
+
+{% block content %}
+<div class="centerstage row">
+  {% for post in post_list %}
+  <div class="post col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-0 col-md-4 col-lg-3">
+    <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+    <!-- published date -->
+    <div class="date">
+      <p>Published on: {{ post.published_date|date:"d-m-y" }}</p>
+    </div>
+    <!-- comments count -->
+    <a href="{% url 'post_detail' pk=post.pk %}"> <span class="loader">Comments:
+        {{ post.approve_comments.count }}</span></a>
+  </div>
+  {% empty %}
+  <p>no posts!!!</p>
+  {% endfor %}
+</div>
+{% endblock content %}

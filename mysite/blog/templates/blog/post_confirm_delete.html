@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+
+
+{% block title %}
+Boom Blogger | Delete
+{% endblock title %}
+
+
+{% block content %}
+<form action="" method="POST">
+  {% csrf_token %}
+
+  <div class="del-form">
+    <p>Are you sure to delete {{ object }}?</p>
+    <!-- #28 -->
+    <input type="submit" class="btn btn-danger" value="Confirm Delete">
+    <a href="{% url 'post_detail' pk=post.pk %}" class="cancel-link">cancel</a>
+  </div>
+
+</form>
+{% endblock content %}

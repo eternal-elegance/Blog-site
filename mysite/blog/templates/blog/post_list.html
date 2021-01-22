@@ -7,9 +7,9 @@ Boom Blogger | Home
 
 
 {% block content %}
-<div class="centerstage row">
+<div class="centerstage">
   {% for post in post_list %}
-  <div class="post col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-0 col-md-4 col-lg-3">
+  <div class="post col-xs-8  col-sm-6  col-md-4 col-lg-3 card">
     <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
     <!-- published date -->
     <div class="date">

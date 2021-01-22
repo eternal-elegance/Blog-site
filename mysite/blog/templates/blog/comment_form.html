@@ -8,9 +8,7 @@ Boom Blogger | New Comment
 
 {% block content %}
 <h1>New Comment</h1>
-<form action="" method="POST">
-  {% csrf_token %}
-  {{ form.as_p }}
+<form action="" method="POST" class="post-form"> {% csrf_token %} {{ form.as_p }}
   <button type="submit" class="save btn btn-info">Post Comment</button>
 </form>
 

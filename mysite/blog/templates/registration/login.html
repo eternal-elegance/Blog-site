@@ -5,7 +5,7 @@ Boom Blogger | Login
 {% endblock %}
 
 {% block content %}
-<div class="jumbotron">
+<div class="">
   <h2>Please Login: </h2>
   <h3>(Must be SuperUser, please check with the site admin)</h3>
 
@@ -14,7 +14,7 @@ Boom Blogger | Login
   <p>username and password didn't match, try again!!</p>
   {% endif %}
 
-  <form action="{% url 'login' %}" method="POST">
+  <form action="{% url 'login' %}" method="POST" class="form-horizontal">
     <!-- #22 -->
     {% csrf_token %}
     {{ form.as_p }}

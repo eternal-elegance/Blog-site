@@ -32,6 +32,8 @@
     href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;1,100;1,200;1,300&family=Russo+One&display=swap"
     rel="stylesheet">
 
+  <link rel="shortcut icon" href="{% static 'images/site-logo.png' %}" type="image/x-icon" />
+
   <title>
     {% block title %}
     Boom Blogger | Home
@@ -72,7 +74,7 @@
           <!--#24-->
 
           <!-- dropdown -->
-          <div class="dropdown">
+          <div class="dropdown" id="drop-animation">
             <button class="btn btn-basic dropdown-toggle " type="button" data-toggle="dropdown"
               style="background-image: linear-gradient(to bottom,#3c3c3c 0,#222 100%); color: beige; padding: 3px; margin-top: 8px;">
               Welcome: {{ user.username }}
@@ -101,15 +103,17 @@
 
   <!-- content block -->
 
-  <div class="content container">
-    <div class="">
-      <div class="">
-        <div class="blog_posts">
+  <div class="content container-fluid">
+    <div class="main">
+      <div class="glass">
+        <div class="blog_posts ">
           {% block content %}
           {% endblock %}
         </div>
       </div>
     </div>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
   </div>
 
 
@@ -120,5 +124,7 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
   integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="{% static 'js/blog.js' %}"></script>
 
 </html>

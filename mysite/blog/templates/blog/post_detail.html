@@ -11,6 +11,9 @@ Boom Blogger | Detail
 <div class="detail">
 
   <h1 class="posttitle loader">{{ post.title }}</h1>
+
+  <p class="contributer">Article Contributed by: <b>{{ post.author.username }}</b></p>
+
   {% if post.published_date %}
   <div class="date postdate">
     {{ post.published_date }}
@@ -47,7 +50,6 @@ Boom Blogger | Detail
     <br>
 
     {% if user.is_authenticated or comment.approved_comment %}
-    {{ comment.created_date }}
     {% if not comment.approved_comment %}
     <a href="{% url 'comment_remove' pk=comment.pk %}" class="btn btn-danger"><span
         class="glyphicon glyphicon-remove"></span></a>
@@ -57,8 +59,11 @@ Boom Blogger | Detail
     </a>
     {% endif %}
 
-
-    <p>{{ comment.text|safe|linebreaks }}</p>
+    <div class="organize">
+      <p class="comment-author">{{ comment.author }} </p>
+      <p class="date-comment">{{ comment.created_date }}</p>
+    </div>
+    <p class="comment-message">{{ comment.text|safe|linebreaks }}</p>
 
     {% endif %}
 

@@ -76,9 +76,11 @@ class PostDeleteView(LoginRequiredMixin, DeleteView):
 class DraftListView(LoginRequiredMixin, ListView):
     """ THIS IS THE DRAFT VIEW """
 
+    context_object_name = "draft_list"
     login_url = "/login/"
-    redirect_field_name = "blog/post_detail.html"
+    redirect_field_name = "blog/post_draft_list.html"
     model = Post
+    template_name = "post_draft_list.html"
 
     def get_queryset(self):
         """ Getting objects which don't have published date """

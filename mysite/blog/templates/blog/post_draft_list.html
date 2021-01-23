@@ -6,13 +6,17 @@ Boom Blogger | Drafts
 
 
 {% block content %}
-{% for post in posts %}
-<div class="post">
-  <p class="date">created: {{ post.created_date|date:'d-m-Y' }}</p>
-  <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-  <p class="text">{{ post.text|truncatechars:50 }}</p>
+<div class="centerstage">
+  {% for draft in draft_list %}
+  {% if not draft.published_date %}
+  <div class="card">
+    <p class="date">created: {{ draft.created_date|date:'d-m-Y' }}</p>
+    <h2><a href="{% url 'post_detail' pk=draft.pk %}">{{ draft.title }}</a></h2>
+    <p class="postcontent">{{ draft.text|safe|truncatechars:50 }}</p>
+  </div>
+  {% endif %}
+  {% empty %}
+  <h2 class="empty">No Drafts!!</h2>
+  {% endfor %}
 </div>
-{% empty %}
-<h2 class="empty">No Drafts</h2>
-{% endfor %}
 {% endblock content %}
